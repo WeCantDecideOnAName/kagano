@@ -1,0 +1,266 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Old Computer Simulation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="screen">
+    <div class="chromatic-aberration"></div>
+    <div class="glitch-overlay"></div>
+    <div class="scanline"></div>
+    <div class="monitor-effect"></div>
+    <div class="static"></div>
+    
+    <div id="boot-sequence">
+      <div class="boot-text"></div>
+    </div>
+
+    <div id="account-select" style="display: none;">
+      <div class="title-bar">LisOS Login</div>
+      <div class="login-content">
+        <div class="account-list">
+          <div class="account" data-username="guest">
+            <div class="account-icon">
+              <svg viewBox="0 0 24 24" width="48" height="48">
+                <path fill="currentColor" d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/>
+              </svg>
+            </div>
+            <div class="account-name">Gustov</div>
+          </div>
+          <div class="account" data-username="researcher">
+            <div class="account-icon">
+              <svg viewBox="0 0 24 24" width="48" height="48">
+                <path fill="currentColor" d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/>
+              </svg>
+            </div>
+            <div class="account-name">Micheal</div>
+          </div>
+        </div>
+        <div class="login-prompt" style="display: none;">
+          <div class="prompt-user"></div>
+          <input type="password" class="login-password" placeholder="Enter Password">
+          <div class="login-buttons">
+            <button class="login-submit">Login</button>
+            <button class="login-back">Back</button>
+          </div>
+          <div class="login-error">Incorrect password</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="desktop" style="display: none;">
+      <div class="title-bar">My Documents</div>
+      <div class="content">
+        <div class="file guest-only" data-content="Company is upgrading. I'll be writing here instead of papers- it's so much easier. R still refuses to comply with it. Granted his standing with the higher-ups, I'm unsure how much longer they can sustain him. Doesn't affect me anyhow. Anyways, the weird glowy orb is acting normal. The event on Sector 7 ages ago messed up the entire floor- J said they're closing it entirely. And the West Arm is being constructed. Took them long enough.
+        
+        - February 19th FIRST LAND
+
+Another day in this place. The orb's color changed today - went from blue to this sickly green color. Had to file another report about it. That's the third change this month. The higher-ups seem excited about it though. Keep talking about 'resonance patterns' or something.
+
+Need to remember to change my password soon. Keep having these weird dreams about someone accessing my files. To be fair, I've been having weird dreams in total.
+
+- February 21st FIRST LAND">
+          <svg class="file-icon" viewBox="0 0 24 24" width="32" height="32">
+            <path fill="currentColor" d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+          </svg>
+          diary.txt
+        </div>
+
+        <div class="file guest-only" data-content="TO-DO LIST:
+        1. Check on the inmate
+        2. Download more RAM
+        3. Fix bugs, still too many...
+        4. Email to R about the generators
+        5. Find the former engineer">
+          <svg class="file-icon" viewBox="0 0 24 24" width="32" height="32">
+            <path fill="currentColor" d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+          </svg>
+          todo.txt
+        </div>
+
+        <div class="file guest-only" data-content="IMPORTANT PASSWORDS:
+        
+        Kagano: combine998
+        
+        DO NOT SHARE!!!">
+          <svg class="file-icon" viewBox="0 0 24 24" width="32" height="32">
+            <path fill="currentColor" d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+          </svg>
+          passwords.txt
+        </div>
+
+        <div class="file kagano-corp">
+          <svg class="file-icon" viewBox="0 0 24 24" width="32" height="32">
+            <path fill="currentColor" d="M21,16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V7.5C3,7.12 3.21,6.79 3.53,6.62L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.79,6.79 21,7.12 21,7.5V16.5M12,4.15L6.04,7.5L12,10.85L17.96,7.5L12,4.15M5,15.91L11,19.29V12.58L5,9.21V15.91M19,15.91V9.21L13,12.58V19.29L19,15.91Z"/>
+          </svg>
+          Kagano Corp
+        </div>
+
+        <div class="file orb-monitor guest-only">
+          <svg class="file-icon" viewBox="0 0 24 24" width="32" height="32">
+            <path fill="currentColor" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/>
+          </svg>
+          System Monitor
+        </div>
+
+        <div class="file researcher-only" data-content="RESEARCH LOG - DR. CARTER
+DATE: 23rd March FIRST LAND
+
+The All-Beacon continues to exhibit unprecedented behaviour. Today's readings showed a 47% increase in output, far beyond our theoretical models. The chromatic shifts are becoming more frequent, and the energy signatures... they're unlike anything we've seen before.">
+          <svg class="file-icon" viewBox="0 0 24 24" width="32" height="32">
+            <path fill="currentColor" d="M20,5V19L13,12L20,5M4,5V19H6V5H4M7,5V19H9V5H7M11,5V19H13V5H11Z"/>
+          </svg>
+          research_log.dat
+        </div>
+
+        <div class="file researcher-only" data-content="SECTOR 7 ANALYSIS REPORT
+STATUS: CLASSIFIED
+VERSION: 2.3.1
+          
+The subject has changed. I've also wrote down a prior review, but this one should be more clear. Something happened in Sector 7 last November- in the SENTINEL chamber. The subject (1997) was being monitored, and soon after the installation of one of the components (unidentified), the subject seemingly convulsed to life and spoke of some strange topics. Readings fluctuated greatly before the subject suddenly became hostile. He killed every person in the chamber. I only lived because I hid and ran. 1997 became some strange mix of human and unholy beast- I do not understand how this process caused this, but a second observation was found a few months ago- albeit that subject died right after the installation from unknown causes.">
+          <svg class="file-icon" viewBox="0 0 24 24" width="32" height="32">
+            <path fill="currentColor" d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M15,18V16H6V18H15M18,14V12H6V14H18Z"/>
+          </svg>
+          sector7_report.sec
+        </div>
+
+        <div class="file researcher-only" data-content="SUBJECT 1993 - INCIDENT REPORT
+STATUS: HIGHLY CLASSIFIED
+ACCESS: LEVEL 4 CLEARANCE REQUIRED
+
+[PARTIAL DATA RECOVERED]
+
+...subject exhibited unusual temporal awareness before the incident. Claims of 'seeing through time' were initially dismissed as psychological trauma from the prior experiments.
+
+...during the final test, subject's neural patterns rapidly fluctuated before being overtaken by mass hostility. Subject developed very strange physical growths.
+
+...multiple casualties. Floor is to be sealed.
+
+RECOMMENDATION: This project is becoming grim. This event will tarnish our reputation.">
+          <svg class="file-icon" viewBox="0 0 24 24" width="32" height="32">
+            <path fill="currentColor" d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2M18 20H6V4H13V9H18V20M9 13V19H7V13H9M15 15V19H17V15H15M11 11V19H13V11H11Z"/>
+          </svg>
+          1993_incident.log
+        </div>
+
+        <div class="file email-client guest-only">
+          <svg class="file-icon" viewBox="0 0 24 24" width="32" height="32">
+            <path fill="currentColor" d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"/>
+          </svg>
+          LisOS Mail
+        </div>
+      </div>
+      <div class="hotbar">
+        <button class="logout-btn">
+          <svg viewBox="0 0 24 24">
+            <path fill="currentColor" d="M16,17V14H9V10H16V7L21,12L16,17M14,2A2,2 0 0,1 16,4V6H14V4H5V20H14V18H16V20A2,2 0 0,1 14,22H5A2,2 0 0,1 3,20V4A2,2 0 0,1 5,2H14Z"/>
+          </svg>
+          Log Out
+        </button>
+      </div>
+    </div>
+
+    <div id="password-prompt" class="password-prompt" style="display: none;">
+      <div class="title-bar">Password Required</div>
+      <p>Please enter password to view Kagano Corporation files:</p>
+      <input type="password" id="password-input" autocomplete="off">
+      <div>
+        <button id="submit-password">Submit</button>
+        <button id="cancel-password">Cancel</button>
+      </div>
+      <div id="error-message" class="error-message">
+        Incorrect password. Access denied.
+      </div>
+    </div>
+
+    <div id="file-viewer" style="display: none;">
+      <div class="title-bar">
+        <span id="current-file">File Viewer</span>
+        <button class="close-btn">×</button>
+      </div>
+      <div class="viewer-content">
+        <pre id="file-content"></pre>
+      </div>
+    </div>
+
+    <div id="orb-monitor-window" class="monitor-window" style="display: none;">
+      <div class="title-bar">
+        <span>All-Beacon Monitoring System v2.3</span>
+        <button class="close-btn">×</button>
+      </div>
+      <div class="monitor-content">
+        <div class="orb-display">
+          <div class="orb-visualization"></div>
+          <div class="monitor-scanline"></div>
+          <div class="monitor-glitch"></div>
+        </div>
+        <div class="readings-panel">
+          <div class="reading">
+            <label>RESONANCE:</label>
+            <div class="value" id="resonance-value">0.00 Hz</div>
+            <div class="graph" id="resonance-graph"></div>
+          </div>
+          <div class="reading">
+            <label>ENERGY OUTPUT:</label>
+            <div class="value" id="energy-value">0.00 MW</div>
+            <div class="graph" id="energy-graph"></div>
+          </div>
+          <div class="reading">
+            <label>STABILITY:</label>
+            <div class="value" id="stability-value">100%</div>
+            <div class="graph" id="stability-graph"></div>
+          </div>
+          <div class="reading">
+            <label>CHROMATIC SHIFT:</label>
+            <div class="value" id="chromatic-value">0.00 nm</div>
+            <div class="spectrum-display"></div>
+          </div>
+        </div>
+        <div class="status-log">
+          <div class="log-header">SYSTEM LOG</div>
+          <div class="log-content" id="orb-log"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="email-window" class="monitor-window email-window" style="display: none;">
+      <div class="title-bar">
+        <span>LisOS Mail v1.2</span>
+        <button class="close-btn">×</button>
+      </div>
+      <div style="display: flex; height: calc(100% - 30px);">
+        <div class="email-sidebar">
+          <div class="email-folder active">Drafts (1)</div>
+          <div class="email-folder">Inbox (0)</div>
+          <div class="email-folder">Sent (0)</div>
+          <div class="email-folder">Trash (0)</div>
+        </div>
+        <div class="email-content">
+          <div class="email-header">
+            <div class="email-field">
+              <label>To:</label>
+              <span>R.Johnson@kagano-corp.com</span>
+            </div>
+            <div class="email-field">
+              <label>Subject:</label>
+              <span>RE: Sector 7 Anomalies</span>
+            </div>
+          </div>
+          <div class="email-body">R,
+
+I know you're concerned about the recent anomalies in Sector 7, but I need you to understand that what we're dealing with here goes beyond our standard protocols.
+
+Micheal said he saw it first-hand. His description... what are we doing with these projects? All of Sector 7 has to be cleared.
+
+The containment protocols you suggested won't be sufficient. We need to consider more... extreme measures as I just said. I've attached the relevant data from last week's measurements.
+
+[DRAFT SAVED 21:42:13]</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
